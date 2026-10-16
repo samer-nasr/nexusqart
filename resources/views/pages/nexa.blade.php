@@ -5,7 +5,7 @@
       <p class="eyebrow">NEXA BY NEXUS QART</p>
       <h1>Your catalogue.<br>Your brand.<br><span class="accent-text">More possibilities.</span></h1>
       <p class="page-intro">A customizable digital menu, catalogue and AI interaction platform. Give customers a simple way to browse, search and ask — and your business one place to manage the experience.</p>
-      <div class="button-group"><a class="button button-dark" href="{{ config('portfolio.wooperly_url') }}">Open Nexa login ↗</a><a class="text-link" href="{{ route('contact', ['interest' => 'Nexa QR Menu']) }}">Ask about Nexa →</a></div>
+      <div class="button-group"><a class="button button-dark" href="{{ config('portfolio.wooperly_url') }}">Open Nexa Platform</a><a class="text-link" href="{{ route('contact', ['interest' => 'Nexa QR Menu']) }}">Ask about Nexa →</a></div>
       <p class="small-note">Already a customer? Your existing login is still on getwooperly.com.</p>
     </div>
     <x-product-preview />
