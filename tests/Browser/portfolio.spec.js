@@ -2,8 +2,27 @@ import { test, expect } from '@playwright/test';
 
 const pages = ['/', '/about', '/services', '/products', '/products/nexa', '/contact'];
 
+test('Nexa signup paths and local conversion hooks work without a provider', async ({ page }) => {
+  await page.goto('/products/nexa');
+  const signup = page.locator('a[data-event="nexa_registration_clicked"]');
+  await expect(signup).toHaveCount(4);
+  for (const link of await signup.all()) await expect(link).toHaveAttribute('href', 'https://getwooperly.com/register');
+  await expect(page.getByRole('link', { name: 'Log In', exact: true })).toHaveAttribute('href', 'https://getwooperly.com/login');
+  await page.evaluate(() => {
+    window.conversions = [];
+    document.addEventListener('nexusqart:conversion', event => window.conversions.push(event.detail));
+    document.addEventListener('click', event => event.preventDefault());
+  });
+  await page.getByRole('link', { name: 'Start Free Trial — Core', exact: true }).click();
+  expect(await page.evaluate(() => window.conversions)).toEqual([
+    { event: 'nexa_registration_clicked', location: 'nexa_plan', plan: 'core' },
+    { event: 'nexa_plan_selected', location: 'nexa_plan', plan: 'core' },
+  ]);
+});
+
 for (const width of [1440, 768, 390, 320]) {
   test(`all pages work at ${width}px`, async ({ page }) => {
+    test.setTimeout(90000);
     await page.setViewportSize({ width, height: 1000 });
     const failures = [];
     page.on('pageerror', error => failures.push(error.message));
@@ -20,6 +39,11 @@ for (const width of [1440, 768, 390, 320]) {
         await page.screenshot({ path: `.qa/nexa-${width}.png`, fullPage: true });
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      // Lazy images must enter the viewport before their download is expected.
+      for (const image of await page.locator('img[loading="lazy"]').all()) {
+        await image.scrollIntoViewIfNeeded();
+        await expect.poll(() => image.evaluate(element => element.complete && element.naturalWidth > 0)).toBe(true);
+      }
       expect(await page.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     }
 
@@ -51,12 +75,13 @@ test('product, contact and keyboard paths work', async ({ page }) => {
   await page.getByRole('link', { name: 'Discover Nexa' }).click();
   await page.getByText('Where do I sign in?', { exact: true }).click();
   await expect(page.locator('.faqs details').first()).toHaveAttribute('open', '');
-  await expect(page.getByRole('link', { name: 'Open Nexa login' })).toHaveAttribute('href', 'https://getwooperly.com/login');
+  await expect(page.getByRole('link', { name: 'Nexa login page' })).toHaveAttribute('href', 'https://getwooperly.com/login');
   await page.getByRole('link', { name: 'Ask about Nexa' }).click();
   await expect(page.getByRole('link', { name: 'Start an email' })).toHaveAttribute('href', /mailto:.*subject=.*Nexa%20QR%20Menu/);
 });
 
 test('local links resolve and scripts are optional', async ({ page, request, browser }) => {
+  test.setTimeout(90000);
   const paths = new Set();
   for (const path of pages) {
     await page.goto(path);

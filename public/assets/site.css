@@ -1526,6 +1526,7 @@ h2 {
 .nexa-plan ul { padding-left: 20px; margin-block: 24px 32px; font-size: 14px; }
 .nexa-plan li { margin-bottom: 9px; }
 .nexa-plan .button { margin-top: auto; }
+.nexa-plan > .text-link { margin-top: 16px; min-height: 44px; display: inline-flex; align-items: center; }
 .nexa-offer { margin-top: 26px; font-size: 14px; }
 @media (max-width: 500px) {
   .nexa-preview { padding: 20px 12px 16px; }

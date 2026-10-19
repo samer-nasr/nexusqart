@@ -3,8 +3,8 @@
     <div class="studio-hero-copy">
       <p class="eyebrow"><span class="status-dot"></span> DESIGN MINDED. ENGINEERING DRIVEN.</p>
       <h1>Your next chapter.<br><span>Beautifully<br>built.</span></h1>
-      <p class="studio-lead">Websites that make an impression. Software that makes a difference. We connect design and technology to move your business forward.</p>
-      <div class="button-group"><a class="button button-dark" href="{{ route('contact') }}">Let’s build something <span aria-hidden="true">↗</span></a><a class="text-link" href="#selected-work">Explore our work <span aria-hidden="true">↓</span></a></div>
+      <p class="studio-lead">We build websites, custom software and AI integrations for businesses. Explore Nexa, our digital menu and catalogue product, or talk to us about your next project.</p>
+      <div class="button-group"><a class="button button-dark" href="{{ route('contact') }}">Let’s build something <span aria-hidden="true">↗</span></a><a class="text-link" href="{{ route('nexa') }}">Explore Nexa <span aria-hidden="true">↓</span></a></div>
       <div class="hero-disciplines"><span>Web experiences</span><span>Custom software</span><span>AI & automation</span></div>
     </div>
     <x-studio-art />
@@ -22,7 +22,7 @@
     <div class="section-heading"><div><p class="eyebrow">03 / NOT JUST IDEAS. OUR OWN PRODUCT.</p><h2>Meet the work.</h2></div><a class="text-link" href="{{ route('products') }}">All products ↗</a></div>
     <div class="work-showcase">
       <div class="work-copy"><span class="pill">NEXA BY NEXUS QART</span><h3>A small scan.<br>A bigger<br><span>experience.</span></h3><p>Menus, catalogues, and AI conversations. Nexa puts your business in your customers’ hands, with your brand at the center.</p><div class="work-tags"><span>Digital catalogue</span><span>Brand customization</span><span>AI assistance</span></div><a class="button button-white" href="{{ route('nexa') }}">Discover Nexa <span aria-hidden="true">↗</span></a><span class="work-caption">OUR FIRST PRODUCT. ROOM FOR WHAT’S NEXT.</span></div>
-      <div class="work-screens"><x-product-preview /></div>
+      <div class="work-screens"><x-product-preview loading="lazy" /></div>
     </div>
   </section>
   <section class="container section studio-process"><div class="section-heading"><div><p class="eyebrow">04 / HOW WE GET THERE</p><h2>A thoughtful process.<br>A tangible result.</h2></div><p>Clarity at every step.<br>Care in every detail.</p></div>

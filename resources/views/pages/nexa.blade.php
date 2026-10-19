@@ -5,8 +5,8 @@
       <p class="eyebrow">NEXA BY NEXUS QART</p>
       <h1>Your catalogue.<br>Your brand.<br><span class="accent-text">More possibilities.</span></h1>
       <p class="page-intro">A customizable digital menu, catalogue and AI interaction platform. Give customers a simple way to browse, search and ask — and your business one place to manage the experience.</p>
-      <div class="button-group"><a class="button button-dark" href="{{ config('portfolio.wooperly_url') }}">Open Nexa Platform</a><a class="text-link" href="{{ route('contact', ['interest' => 'Nexa QR Menu']) }}">Ask about Nexa →</a></div>
-      <p class="small-note">Already a customer? Your existing login is still on getwooperly.com.</p>
+      <div class="button-group"><a class="button button-dark" href="{{ config('portfolio.nexa_register_url') }}" data-event="nexa_registration_clicked" data-location="nexa_hero">Start Free Trial</a><a class="text-link" href="{{ config('portfolio.nexa_login_url') }}" data-event="nexa_login_clicked" data-location="nexa_hero">Log In</a></div>
+      <p class="small-note">Need help choosing? <a href="{{ route('contact', ['interest' => 'Nexa QR Menu']) }}">Ask about Nexa →</a></p>
     </div>
     <x-product-preview />
   </section>
@@ -34,8 +34,8 @@
   <section class="container section" id="plans">
     <p class="eyebrow">SIMPLE PRICING</p><h2>Start with your menu.<br>Add a little intelligence.</h2>
     <div class="nexa-plans">
-      <article class="nexa-plan"><span class="pill">CORE</span><h3>$7 <small>/ month</small></h3><p>Your digital menu and catalogue essentials.</p><ul><li>Live QR menu or catalogue</li><li>Categories, items, ingredients, prices and images</li><li>Featured items and basic search</li><li>Branding, templates and light/dark mode</li><li>Design controls, admin access and fast updates</li></ul><a class="button button-dark" href="{{ route('contact', ['interest' => 'Nexa Core plan']) }}">Ask about Core ↗</a></article>
-      <article class="nexa-plan nexa-plan-ai"><span class="pill">AI</span><h3>$11 <small>/ month</small></h3><p>Everything in Core, plus AI assistance.</p><ul><li>Menu and catalogue-grounded AI assistant</li><li>Natural-language questions</li><li>Price questions and combination guidance</li><li>Assistance based on your business content</li></ul><a class="button button-dark" href="{{ route('contact', ['interest' => 'Nexa AI plan']) }}">Ask about AI ↗</a></article>
+      <article class="nexa-plan"><span class="pill">CORE</span><h3>$7 <small>/ month</small></h3><p>Your digital menu and catalogue essentials.</p><ul><li>Live QR menu or catalogue</li><li>Categories, items, ingredients, prices and images</li><li>Featured items and basic search</li><li>Branding, templates and light/dark mode</li><li>Design controls, admin access and fast updates</li></ul><a class="button button-dark" href="{{ config('portfolio.nexa_register_url') }}" data-event="nexa_registration_clicked" data-location="nexa_plan" data-plan="core" aria-label="Start Free Trial — Core">Start Free Trial</a><a class="text-link" href="{{ route('contact', ['interest' => 'Nexa Core plan']) }}">Ask about Core ↗</a></article>
+      <article class="nexa-plan nexa-plan-ai"><span class="pill">AI</span><h3>$11 <small>/ month</small></h3><p>Everything in Core, plus AI assistance.</p><ul><li>Menu and catalogue-grounded AI assistant</li><li>Natural-language questions</li><li>Price questions and combination guidance</li><li>Assistance based on your business content</li></ul><a class="button button-dark" href="{{ config('portfolio.nexa_register_url') }}" data-event="nexa_registration_clicked" data-location="nexa_plan" data-plan="ai" aria-label="Start Free Trial — AI">Start Free Trial</a><a class="text-link" href="{{ route('contact', ['interest' => 'Nexa AI plan']) }}">Ask about AI ↗</a></article>
     </div>
     <p class="nexa-offer">One month free · Installation and initial configuration included · Loyalty program available</p>
   </section>
@@ -45,10 +45,10 @@
   </div></section>
   <section class="container section faq-section"><div><p class="eyebrow">A FEW USEFUL DETAILS</p><h2>Before you<br>take a look.</h2></div>
     <div class="faqs">
-      <details><summary>Where do I sign in?</summary><p>Use the <a href="{{ config('portfolio.wooperly_url') }}">Nexa login page</a>. It currently opens getwooperly.com; your existing account stays in the separate product application.</p></details>
+      <details><summary>Where do I sign in?</summary><p>Use the <a href="{{ config('portfolio.nexa_login_url') }}" data-event="nexa_login_clicked" data-location="nexa_faq">Nexa login page</a> to access your existing account.</p></details>
       <details><summary>What do the screenshots show?</summary><p>These are actual customer-facing menu and AI assistant screenshots. The business branding, items and prices shown are example menu content, not Nexa subscription prices.</p></details>
       <details><summary>Is Nexa only for restaurants?</summary><p>No. Nexa also supports businesses that need a configurable digital catalogue, including cafés, hotels, clubs and other venues.</p></details>
-      <details><summary>How do I start or ask about a plan?</summary><p><a href="{{ route('contact', ['interest' => 'Nexa demo and plans']) }}">Contact Nexus Qart</a> to discuss your business, setup and the available plans.</p></details>
+      <details><summary>How do I start or ask about a plan?</summary><p><a href="{{ config('portfolio.nexa_register_url') }}" data-event="nexa_registration_clicked" data-location="nexa_faq">Start Free Trial</a> to create your account, or <a href="{{ route('contact', ['interest' => 'Nexa demo and plans']) }}">contact Nexus Qart</a> for help with your business, setup and the available plans.</p></details>
     </div>
   </section><x-cta />
 </x-layout>

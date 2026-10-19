@@ -103,3 +103,18 @@ if ('IntersectionObserver' in window && !motionPreference.matches) {
 motionPreference.addEventListener('change', event => {
   if (event.matches) stopReveals();
 });
+
+// Local hooks only: no vendor, cookies, network requests or personal data.
+// A future consent-aware integration can subscribe to nexusqart:conversion.
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[data-event]');
+  if (!link) return;
+  const detail = { event: link.dataset.event, location: link.dataset.location };
+  if (link.dataset.plan) detail.plan = link.dataset.plan;
+  document.dispatchEvent(new CustomEvent('nexusqart:conversion', { detail }));
+  if (link.dataset.plan) {
+    document.dispatchEvent(new CustomEvent('nexusqart:conversion', {
+      detail: { event: 'nexa_plan_selected', location: link.dataset.location, plan: link.dataset.plan },
+    }));
+  }
+});

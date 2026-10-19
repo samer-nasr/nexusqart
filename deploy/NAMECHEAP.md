@@ -45,7 +45,8 @@ SESSION_SECURE_COOKIE=true
 CACHE_STORE=file
 QUEUE_CONNECTION=sync
 CONTACT_EMAIL=hello@nexusqart.com
-WOOPERLY_URL=https://getwooperly.com/login
+NEXA_REGISTER_URL=https://getwooperly.com/register
+NEXA_LOGIN_URL=https://getwooperly.com/login
 ```
 
 Replace the domain and email placeholders; retain the generated `APP_KEY`. Enable the domain's SSL certificate and HTTPS redirect in cPanel. Ensure the account's PHP process can write to `storage/` and `bootstrap/cache/`; use owner-appropriate permissions, not blanket 777.

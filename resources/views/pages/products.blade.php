@@ -9,8 +9,8 @@
         <p>{{ $product['description'] }}</p>
         <div class="button-group">
           <a class="button button-dark" href="{{ isset($product['route']) ? route($product['route']) : $product['url'] }}">Explore {{ $product['name'] }} ↗</a>
-          @if (!empty($product['login_url']))
-            <a class="text-link" href="{{ $product['login_url'] }}">{{ $product['name'] }} login ↗</a>
+          @if (!empty($product['login_config']) || !empty($product['login_url']))
+            <a class="text-link" href="{{ !empty($product['login_config']) ? config($product['login_config']) : $product['login_url'] }}" @if(($product['route'] ?? null) === 'nexa') data-event="nexa_login_clicked" data-location="products" @endif>{{ $product['name'] }} login ↗</a>
           @endif
         </div>
       </div>

@@ -9,6 +9,15 @@ Route::view('/products', 'pages.products')->name('products');
 Route::view('/products/nexa', 'pages.nexa')->name('nexa');
 Route::view('/contact', 'pages.contact')->name('contact');
 
+Route::get('/sitemap.xml', function () {
+    return response()->view('sitemap', [], 200)->header('Content-Type', 'application/xml; charset=UTF-8');
+})->name('sitemap');
+
+Route::get('/robots.txt', function () {
+    return response("User-agent: *\nDisallow:\n\nSitemap: ".rtrim(config('app.url'), '/')."/sitemap.xml\n")
+        ->header('Content-Type', 'text/plain; charset=UTF-8');
+});
+
 // Keep previously advertised company and QR product URLs useful.
 Route::redirect('/company', '/about', 301);
 Route::redirect('/products/intelligent-qr', '/products/nexa', 301);

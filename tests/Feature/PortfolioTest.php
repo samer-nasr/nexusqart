@@ -75,4 +75,38 @@ class PortfolioTest extends TestCase
     {
         $this->get('/up')->assertOk();
     }
+
+    public function test_conversion_links_use_configuration_without_plan_parameters(): void
+    {
+        config([
+            'portfolio.nexa_register_url' => 'https://signup.example/register',
+            'portfolio.nexa_login_url' => 'https://signup.example/login',
+        ]);
+        $response = $this->get('/products/nexa')->assertOk();
+        $document = new \DOMDocument;
+        @$document->loadHTML($response->getContent());
+        $xpath = new \DOMXPath($document);
+        $registration = $xpath->query('//a[@data-event="nexa_registration_clicked"]');
+        $this->assertCount(4, $registration);
+        foreach ($registration as $link) {
+            $this->assertSame('https://signup.example/register', $link->getAttribute('href'));
+        }
+        $this->assertCount(2, $xpath->query('//a[@data-plan]'));
+        foreach (['/products/nexa', '/products', '/contact'] as $path) {
+            $this->get($path)->assertSee('https://signup.example/login')->assertDontSee('https://getwooperly.com/login');
+        }
+        $response->assertDontSee('Open Nexa Platform')->assertSee('One month free');
+        $this->get('/register')->assertNotFound();
+    }
+
+    public function test_search_discovery_uses_the_configured_site_origin(): void
+    {
+        config(['app.url' => 'https://nexusqart.example']);
+        $response = $this->get('/sitemap.xml')->assertOk()
+            ->assertHeader('Content-Type', 'application/xml; charset=UTF-8');
+        $xml = simplexml_load_string($response->getContent());
+        $this->assertCount(6, $xml->url);
+        $this->assertSame('https://nexusqart.example/products/nexa', (string) $xml->url[4]->loc);
+        $this->get('/robots.txt')->assertOk()->assertSee('Sitemap: https://nexusqart.example/sitemap.xml');
+    }
 }
