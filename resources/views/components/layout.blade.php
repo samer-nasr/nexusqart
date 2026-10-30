@@ -28,7 +28,7 @@
           <a href="{{ route($name) }}" @if(request()->routeIs($name) || ($name === 'products' && request()->routeIs('nexa'))) aria-current="page" @endif>{{ $label }}</a>
         @endforeach
       </nav>
-      <a class="button button-small header-cta" href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Start a project <span aria-hidden="true">↗</span></a>
+      <a class="button button-small header-cta" href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Contact us <span aria-hidden="true">↗</span></a>
       <button class="menu-toggle" hidden type="button" aria-controls="mobile-menu" aria-haspopup="dialog" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
     </div>
     <noscript><nav class="container fallback-nav" aria-label="Page navigation"><a href="{{ route('home') }}">Home</a><a href="{{ route('about') }}">About</a><a href="{{ route('services') }}">Services</a><a href="{{ route('products') }}">Products</a><a href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Contact</a></nav></noscript>
@@ -45,20 +45,20 @@
           <a href="{{ route($name) }}" @if(request()->routeIs($name) || ($name === 'products' && request()->routeIs('nexa'))) aria-current="page" @endif><span>{{ $label }}</span><span aria-hidden="true">↗</span></a>
         @endforeach
       </nav>
-      <div class="drawer-bottom"><p>Good ideas start with<br>a conversation.</p><a class="button button-dark" href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Start a project <span aria-hidden="true">↗</span></a></div>
+      <div class="drawer-bottom"><p>Good ideas start with<br>a conversation.</p><a class="button button-dark" href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Contact us <span aria-hidden="true">↗</span></a></div>
     </div>
   </dialog>
   <main id="main">{{ $slot }}</main>
   <footer class="site-footer">
     <div class="container footer-top">
       <div><a class="brand" href="{{ route('home') }}"><img src="{{ asset('assets/nexus-qart-logo-light.svg') }}" width="221" height="42" alt="Nexus Qart home"></a><p>Good ideas deserve<br>thoughtful technology.</p></div>
-      <div><h2>Explore</h2><a href="{{ route('about') }}">About us</a><a href="{{ route('services') }}">Our services</a><a href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Get in touch</a></div>
+      <div><h2>Explore</h2><a href="{{ route('about') }}">About us</a><a href="{{ route('services') }}">Our services</a><a href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Contact us</a></div>
       <div><h2>Our products</h2><a href="{{ route('products') }}">All products</a>
         @foreach (config('products') as $product)
           <a href="{{ isset($product['route']) ? route($product['route']) : $product['url'] }}">{{ $product['name'] }}</a>
         @endforeach
       </div>
-      <div><h2>Have an idea?</h2><a class="footer-contact" href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Let’s build it together. <span aria-hidden="true">↗</span></a></div>
+      <div><h2>Have an idea?</h2><a class="footer-contact" href="{{ route('contact') }}" data-event="request_quotation_clicked" data-location="layout">Contact us <span aria-hidden="true">↗</span></a><a href="tel:{{ config('portfolio.contact_phone_uri') }}">{{ config('portfolio.contact_phone') }}</a><a href="{{ config('portfolio.instagram_url') }}">Instagram · &#64;{{ config('portfolio.instagram_handle') }}</a></div>
     </div>
     <div class="container footer-bottom"><span>© {{ date('Y') }} Nexus Qart. All rights reserved.</span><span>Designed with purpose. Built with care.</span></div>
   </footer>

@@ -25,9 +25,9 @@
   <section class="section services-section"><div class="container">
     <p class="eyebrow">THE NEXUS QART PLATFORM</p><h2>One account.<br>More than one business.</h2>
     <div class="three-grid">
-      <article class="value-card"><span>01 / SWITCH COMPANIES</span><h3>Your businesses, connected.</h3><p>Manage multiple companies and switch between their workspaces from the same user account.</p></article>
-      <article class="value-card"><span>02 / KEEP EACH IDENTITY</span><h3>Separate brands. Separate content.</h3><p>Each company keeps its own menu or catalogue data, branding, settings and customer-facing experience.</p></article>
-      <article class="value-card"><span>03 / ROOM TO GROW</span><h3>The first of more to come.</h3><p>Nexa is the first available product in the Nexus Qart platform. The account and product structure is designed for additional products in the future.</p></article>
+      <article class="value-card"><span>SWITCH COMPANIES</span><h3>Your businesses, connected.</h3><p>Manage multiple companies and switch between their workspaces from the same user account.</p></article>
+      <article class="value-card"><span>KEEP EACH IDENTITY</span><h3>Separate brands. Separate content.</h3><p>Each company keeps its own menu or catalogue data, branding, settings and customer-facing experience.</p></article>
+      <article class="value-card"><span>ROOM TO GROW</span><h3>The first of more to come.</h3><p>Nexa is the first available product in the Nexus Qart platform. The account and product structure is designed for additional products in the future.</p></article>
     </div>
     <p class="nexa-audience">For restaurants, cafés, pubs, clubs, hotels, internet cafés and other businesses that need a live digital catalogue.</p>
   </div></section>

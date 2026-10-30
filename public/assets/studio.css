@@ -82,7 +82,7 @@ h2 { font-size: clamp(34px, 3.65vw, 52px); line-height: 1.12; font-weight: 600; 
 .studio-ticker b { color: #2563eb; font-weight: 400; font-size: 21px; }
 .studio-intro { display: grid; grid-template-columns: .8fr 1.5fr; gap: 80px; }
 .studio-intro > div:first-child { padding-top: 8px; }
-.studio-intro > div:first-child .text-link { margin-top: 25px; }
+.studio-intro > div:first-child .button { margin-top: 25px; }
 .studio-intro .large-copy { font-size: 17px; max-width: 620px; margin-top: 28px; line-height: 1.85; }
 .studio-services { background: #eef2f8; border-block: 1px solid var(--line); }
 .service-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
@@ -156,6 +156,15 @@ h2 { font-size: clamp(34px, 3.65vw, 52px); line-height: 1.12; font-weight: 600; 
 .product-hero h1 { font-weight: 600; }
 .contact-card { background: #fff; border: 1px solid var(--line); box-shadow: 0 15px 45px #172e5508; }
 .contact-card .email-address { color: #1d4ed8; }
+.contact-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.contact-options .contact-card { padding: clamp(20px, 3vw, 36px); min-width: 0; }
+.contact-options h2 { font-size: clamp(24px, 2.5vw, 32px); }
+.contact-options .contact-detail { overflow-wrap: anywhere; margin-top: 16px; }
+.contact-options .button { margin-top: 24px; }
+.contact-options .small-note { margin-top: 12px; }
+.contact-guidance { padding-top: 64px; }
+.contact-guidance > div > p:not(.eyebrow) { margin-top: 20px; }
+@media (max-width: 900px) { .contact-options { grid-template-columns: 1fr; } }
 .login-note { padding: 25px; background: #eff6ff; border-radius: 14px; }
 .faqs details { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 22px; margin-bottom: 12px; }
 .faqs summary { font-size: 14px; font-weight: 500; }
@@ -202,7 +211,7 @@ h2 { font-size: clamp(34px, 3.65vw, 52px); line-height: 1.12; font-weight: 600; 
   .chip-build { bottom: 65px; left: 40px; }
   .section { padding-block: 70px; }
   .studio-intro { grid-template-columns: 1fr; gap: 32px; }
-  .studio-intro > div:first-child .text-link { margin-top: 0; }
+  .studio-intro > div:first-child .button { margin-top: 0; }
   .studio-ticker > div { flex-wrap: wrap; gap: 12px; padding-block: 22px; }
   .studio-ticker p { font-size: 13px; gap: 22px; }
   .service-row { padding: 24px; }
@@ -363,4 +372,38 @@ html.drawer-open { overflow: hidden; }
   .drawer-heading { margin-bottom: 22px; }
   .mobile-drawer #mobile-nav a { padding-block: 11px; font-size: 21px; }
   .drawer-bottom { padding-top: 24px; }
+}
+
+/* Readable labels and stronger headings for process and values cards. */
+.studio-process .value-card > span,
+.process-section .value-card > span,
+.values-section .value-card > span {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  line-height: 1.5;
+}
+.studio-process .value-card h3,
+.process-section .value-card h3,
+.values-section .value-card h3 {
+  font-size: clamp(25px, 2.8vw, 30px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 20px;
+}
+.studio-process .value-card p,
+.process-section .value-card p,
+.values-section .value-card p {
+  font-size: 15px;
+  line-height: 1.75;
+}
+.product-feature-grid .pill {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: .02em;
+  padding: 8px 14px;
+  color: #1d4ed8;
+  background: #eff6ff;
+  white-space: normal;
 }

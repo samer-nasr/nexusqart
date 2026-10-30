@@ -1,5 +1,5 @@
 <x-layout title="Our products" description="Explore the Nexus Qart product portfolio: purposeful digital tools for everyday business needs.">
-  <section class="container page-hero"><p class="eyebrow">OUR PRODUCT PORTFOLIO</p><h1>Built with purpose.<br>Ready for the <span class="accent-text">everyday.</span></h1><p class="page-intro">Our products put our approach into practice: thoughtful technology for familiar business needs.</p></section>
+  <section class="container page-hero"><p class="eyebrow">OUR PRODUCT PORTFOLIO</p><h1>Built with purpose.<br>Ready for the <span class="accent-text">everyday.</span></h1><p class="page-intro">Explore Nexa, our digital menu and catalogue product for businesses.</p></section>
   @foreach (config('products') as $product)
     <section class="container product-feature-grid">
       <div>

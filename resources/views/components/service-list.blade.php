@@ -1,10 +1,10 @@
 <div class="service-list">
   @foreach ([
-    ['01', 'Websites & digital experiences', 'A distinctive online presence that tells your story and makes the next step feel natural.', 'Web design', 'Development', 'web'],
-    ['02', 'Custom software', 'Purpose-built tools that fit your business, connect your processes, and simplify the everyday.', 'Business tools', 'Integrations', 'software'],
-    ['03', 'AI & automation', 'Put information to work and give your team more room to focus on what needs a human touch.', 'Workflow design', 'AI integration', 'ai'],
-    ['04', 'Technology consulting', 'A clear technical perspective, from the first question to a practical plan for moving forward.', 'Discovery', 'Technical strategy', 'strategy']
-  ] as [$number, $heading, $copy, $tagOne, $tagTwo, $icon])
+    ['Websites & digital experiences', 'Responsive business websites with clear navigation, product or service pages, and direct contact options.', 'Web design', 'Development', 'web'],
+    ['Custom software', 'Custom applications, internal dashboards, and integrations built around your team’s processes.', 'Business tools', 'Integrations', 'software'],
+    ['AI & automation', 'AI integrations and automated workflows that help your team handle repetitive tasks and work with business information.', 'Workflow design', 'AI integration', 'ai'],
+    ['Technology consulting', 'Requirements planning, system reviews, and guidance on choosing the technology for your next project.', 'Discovery', 'Technical strategy', 'strategy']
+  ] as [$heading, $copy, $tagOne, $tagTwo, $icon])
     <article class="service-row" id="service-{{ $icon }}">
       <div class="service-card-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         @if ($icon === 'web')
@@ -16,7 +16,7 @@
         @else
           <circle cx="16" cy="16" r="12"/><path d="m21 11-3 7-7 3 3-7Z"/>
         @endif
-      </svg></span><span class="service-number">{{ $number }}</span></div>
+      </svg></span></div>
       <div class="service-card-body"><h3>{{ $heading }}</h3><p>{{ $copy }}</p></div>
       <div class="service-card-bottom"><div class="tags"><span>{{ $tagOne }}</span><span>{{ $tagTwo }}</span></div><a href="{{ route('contact', ['interest' => $heading]) }}" class="circle-link" aria-label="Discuss {{ strtolower($heading) }}">↗</a></div>
     </article>
